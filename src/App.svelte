@@ -1,6 +1,7 @@
 <script>
 	import Nav from './Components/Nav.svelte';
 	import Record from './Components/Record.svelte';
+	import Credits from './Components/Credits.svelte';
 
 	// All test records
     let dataRecord = [
@@ -120,4 +121,6 @@
 		</div>
 	</div>	
 </div>
+
+<Credits />
 
