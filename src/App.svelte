@@ -2,11 +2,12 @@
 	import Nav from './Components/Nav.svelte';
 	import Record from './Components/Record.svelte';
 
+	// All test records
     let dataRecord = [
         {
             system: 'gmail',
             owner: 'jason',
-            username: 'jmaalegado@gmail.com',
+            username: 'jason_test@gmail.com',
             password: 'pass'
         },
         {
@@ -17,7 +18,7 @@
         },
         {
             system: 'gmail',
-            owner: 'adriell',
+            owner: 'netti',
             username: 'coolnat31@gmail.com',
             password: 'play_games_always'
         },
@@ -29,7 +30,7 @@
         },
 		{
             system: 'yahoo',
-            owner: 'bronz gabriel',
+            owner: 'bronz',
             username: 'silent_bg@eudoramail.com',
             password: 'coolhanj05'
         },
