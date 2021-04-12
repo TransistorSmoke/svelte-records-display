@@ -1,53 +1,69 @@
 <script>
-	import Nav from './Components/Nav.svelte';
 	import Record from './Components/Record.svelte';
 	import Credits from './Components/Credits.svelte';
 
 	// All test records
     let dataRecord = [
         {
+			id: 1,
             system: 'gmail',
-            owner: 'jason',
-            username: 'jason_test@gmail.com',
+            owner: 'skylar',
+            username: 'skylar@gmail.com',
             password: 'pass'
         },
         {
+			id: 2,
             system: 'gmail',
-            owner: 'bb',
-            username: 'bb@gmail.com',
+            owner: 'breadcrumbs',
+            username: 'breadcrumbs@gmail.com',
             password: 'pass_90990'
         },
         {
+			id: 3,
             system: 'gmail',
             owner: 'netti',
             username: 'coolnat31@gmail.com',
             password: 'play_games_always'
         },
 		{
+			id: 4,
             system: 'gmail',
             owner: 'kulas',
             username: 'kulas@gmail.com',
             password: 'wazzup_kulas09'
         },
 		{
+			id: 5,
             system: 'yahoo',
             owner: 'bronz',
             username: 'silent_bg@eudoramail.com',
             password: 'coolhanj05'
         },
 		{
+			id: 7,
             system: 'hotmail',
-            owner: 'theo marco',
+            owner: 'marco',
             username: 'theo_the_korean@gmail.com',
             password: 'zookeeper_01'
         },
 		{
+			id: 8,
             system: 'steam',
-            owner: 'jason',
-            username: 'orbital_ner@gmail.com',
-            password: 'krookrookroo'
+            owner: 'error_page',
+            username: 'error_page@gmail.com',
+            password: 'krrok!'
+        },
+		{
+			id: 9,
+            system: 'Nate Corp',
+            owner: 'netcorp',
+            username: 'netcorp@gmail.com',
+            password: 'nc_inc!'
         }								
     ];	
+
+
+	
 </script>
 
 <style>	
@@ -79,29 +95,7 @@
 	
 	} */
 
-	.container-center {
-		margin: 0 auto;
-	}
 </style>
-
-<!-- <div class="box">
-	<div class="title is-1">
-		<h1>These are the records.</h1>
-	</div>
-	<div class="data">
-		<div class="container-records">
-			{#each dataRecord as record}
-			<Record 
-				system={record.system}
-				owner={record.owner}
-				username={record.username}
-				password={record.password}
-			/>
-		{/each}
-		</div>
-
-	</div>	
-</div> -->
 
 
 <div class="title is-size-1 has-text-centered my-6">
@@ -109,9 +103,10 @@
 </div>
 <div class="column">	
 	<div class="columns">
-		<div class="box">
-			{#each dataRecord as record}
-			<Record 
+		<div class="box" style="border: 2px solid red">
+			{#each dataRecord as record, i (record.id)}
+			<Record
+				recordID={record.id}			
 				system={record.system}
 				owner={record.owner}
 				username={record.username}

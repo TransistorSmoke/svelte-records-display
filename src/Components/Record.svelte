@@ -1,21 +1,28 @@
 <script>
+    import Update from './Update.svelte';
+
+    export let id;
     export let system;
     export let owner;
     export let username;
     export let password;
+
+    export let currentRecords;
+
+    function deleteRecord() {
+        console.log("hello world")
+    }
+    
+  
+
 </script>
 
 <style>
     .record {
         display: inline-block;
         margin: 12px 10px;   
-        /* padding: 0 4px;	 */
-        width: 300px;
-
-        /* border: 1px solid rgba(112, 112, 112, 0.2); */
-
+        width: 300px;        
         border-radius: 8px;
-
         background-color:  rgba(112, 158, 255, 0.2);
         box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.1);
         
@@ -40,24 +47,39 @@
         padding: 4px 0;
     }
 
-    /* .small-strong {
-        font-weight: bold;
-        font-size: 0.9rem;
-    } */
 
     .record-update {     
         display: flex;
         justify-content: flex-end;
     }
 
-    .record-update i.far{
-        margin: 0 3px;
+    .update-icons {
+        width: 28px;
+        height: 28px;        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 16px;;
+    }
+
+    .record-update .update-icons:last-child {
+        margin: 0 4px;        
+    }
+
+    .record-update i.far{        
         color: rgb(138, 138, 138);
     }
 
-    .record-update i.far:last-child {
-        margin-right: 12px;
+    .record-update i.far:hover{
+        cursor: pointer;
     }
+
+    .record-update .update-icons {
+        background-color: white;
+        padding: 4px;
+    }    
+
+
     .record-info .mb-5 > p:first-child {        
         padding: 4px 0;        
     }
@@ -66,16 +88,25 @@
         font-weight: bold;
         font-size: 0.75em;
     }
+
+    /* .small-strong {
+        font-weight: bold;
+        font-size: 0.9rem;
+    } */
+
     
 </style>
 
-<div class="record pt-3">
+<div class="record pt-3">    
     <div class="record-update">
-        <!-- <span class="edit">Edit</span> -->
-        <i class="far fa-edit"></i>
-        <i class="far fa-trash-alt"></i>
+        <div class="update-icons">
+            <i class="far fa-edit"></i>
+        </div>
+        <div class="update-icons" on:click={deleteRecord}>
+            <i class="far fa-trash-alt"></i>
+        </div>
     </div>
-
+            
     <header class="header my-4">
         <figure class="image is-64x64">
             <img src="../icons/yahoo.png" alt="yahoo logo">
