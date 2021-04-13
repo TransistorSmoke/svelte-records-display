@@ -1,3 +1,6 @@
+This is just my practice repo for some basic Svelte functionalities.
+
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
