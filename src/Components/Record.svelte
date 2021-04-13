@@ -1,20 +1,11 @@
 <script>
-    import Update from './Update.svelte';
-
-    export let id;
+    export let index;
     export let system;
     export let owner;
     export let username;
     export let password;
-
-    export let currentRecords;
-
-    function deleteRecord() {
-        console.log("hello world")
-    }
-    
+    export let deleteRecord;
   
-
 </script>
 
 <style>
@@ -102,7 +93,7 @@
         <div class="update-icons">
             <i class="far fa-edit"></i>
         </div>
-        <div class="update-icons" on:click={deleteRecord}>
+        <div class="update-icons" on:click={deleteRecord(index)}>
             <i class="far fa-trash-alt"></i>
         </div>
     </div>

@@ -40,6 +40,13 @@
             password: 'coolhanj05'
         },
 		{
+			id: 6,
+            system: 'instagram',
+            owner: 'penguin',
+            username: 'penguin@eudoramail.com',
+            password: 'penguin'
+        },
+		{
 			id: 7,
             system: 'hotmail',
             owner: 'marco',
@@ -63,50 +70,24 @@
     ];	
 
 
-	
-</script>
-
-<style>	
-	/* .wrapper {
-		border: 1px solid red;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		height: 100%;
-	} */
-
-	/* h1 {
-		border: 1px solid black;		
-	} */
-
-	/* .data {
-		width: 50%;
-		border: 1px solid red;
-		display: flex;
-		justify-content: center;
-		flex-wrap: wrap;
-	
+	function deleteRecord(i) {		
+		dataRecord.splice(i, 1);
+		dataRecord = [...dataRecord];
 	}
 
-	.container-records {
-		width: 100%;	
-		padding: 0 12px;
 	
-	} */
-
-</style>
-
+</script>
 
 <div class="title is-size-1 has-text-centered my-6">
 	<h1>These are the records.</h1>
 </div>
 <div class="column">	
 	<div class="columns">
-		<div class="box" style="border: 2px solid red">
+		<div class="box">
 			{#each dataRecord as record, i (record.id)}
 			<Record
-				recordID={record.id}			
+				index={i}
+				deleteRecord={deleteRecord}			
 				system={record.system}
 				owner={record.owner}
 				username={record.username}
