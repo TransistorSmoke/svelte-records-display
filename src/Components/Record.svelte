@@ -1,11 +1,19 @@
 <script>
-    export let index;
+    export let index;    
     export let system;
     export let owner;
     export let username;
     export let password;
+    export let isEdit;
+    export let editRecord;
     export let deleteRecord;
+    export let refreshRecord;
   
+    let defaultIcon = "../icons/question-mark.png";
+    
+    $: pathBrand = `../icons/${system.toLowerCase()}.png`;
+    $: classEditInfo = isEdit ? "edit-info" : "";
+
 </script>
 
 <style>
@@ -15,8 +23,7 @@
         width: 300px;        
         border-radius: 8px;
         background-color:  rgba(112, 158, 255, 0.2);
-        box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.1);
-        
+        box-shadow: 1px 2px 4px 0px rgba(0,0,0,0.1);                
     }
     .header {
         margin: 0;
@@ -30,6 +37,11 @@
     .system {
         text-transform: uppercase;
         font-weight: bold;        
+    }
+
+    .record figure img {
+        max-width: 64px;
+        max-height: 64px;
     }
 
     .record-info {
@@ -57,11 +69,11 @@
         margin: 0 4px;        
     }
 
-    .record-update i.far{        
+    .record i{        
         color: rgb(138, 138, 138);
     }
 
-    .record-update i.far:hover{
+    .record i:hover {
         cursor: pointer;
     }
 
@@ -75,6 +87,14 @@
         padding: 4px 0;        
     }
 
+    .record-info .refresh {
+        text-align: right;        
+    }
+    
+    .record-info .refresh i {        
+        margin: 0 8px 6px 0;
+    }
+
     p.title ~ p {
         font-weight: bold;
         font-size: 0.75em;
@@ -84,13 +104,15 @@
         font-weight: bold;
         font-size: 0.9rem;
     } */
-
+    .edit-info  {
+        color: red;
+    }
     
 </style>
 
 <div class="record pt-3">    
     <div class="record-update">
-        <div class="update-icons">
+        <div class="update-icons" on:click={editRecord(index)}>
             <i class="far fa-edit"></i>
         </div>
         <div class="update-icons" on:click={deleteRecord(index)}>
@@ -100,25 +122,30 @@
             
     <header class="header my-4">
         <figure class="image is-64x64">
-            <img src="../icons/yahoo.png" alt="yahoo logo">
+            <img src={pathBrand} alt={system} onerror="this.src='{defaultIcon}'">
           </figure>
         <div class="system my-2">
-            <p class="title is-4">{system}</p>
+            <p class="title is-5">{system}</p>
         </div>
     </header>
     <div class="record-info">
         <div class="mb-5">
-            <p class="title is-5">{owner}</p>
+            <p class="title is-6" class:edit-info={isEdit}>{owner}</p>
             <p class="subtitle small-strong">OWNER</p>
         </div>
 
         <div class="mb-5">
-            <p class="title is-5">{username}</p>            
+            <p class="title is-6" class:edit-info={isEdit}>{username}</p>            
             <p class="subtitle">USERNAME</p>
         </div>
         <div class="mb-5">
-            <p class="title is-5">{password}</p>            
+            <p class="title is-6" class:edit-info={isEdit}>{password}</p>            
             <p class="subtitle">PASSWORD</p>
         </div>
+        <div class="refresh" on:click={refreshRecord(index)}>
+            <i class="fas fa-sync-alt"></i>
+        </div>        
     </div>
+
+
 </div>
