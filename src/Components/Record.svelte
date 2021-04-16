@@ -7,12 +7,10 @@
     export let isEdit;
     export let editRecord;
     export let deleteRecord;
-    export let refreshRecord;
   
     let defaultIcon = "../icons/question-mark.png";
     
-    $: pathBrand = `../icons/${system.toLowerCase()}.png`;
-    $: classEditInfo = isEdit ? "edit-info" : "";
+    $: pathBrand = `../icons/${system.toLowerCase()}.png`;    
 
 </script>
 
@@ -87,23 +85,11 @@
         padding: 4px 0;        
     }
 
-    .record-info .refresh {
-        text-align: right;        
-    }
-    
-    .record-info .refresh i {        
-        margin: 0 8px 6px 0;
-    }
-
     p.title ~ p {
         font-weight: bold;
         font-size: 0.75em;
     }
 
-    /* .small-strong {
-        font-weight: bold;
-        font-size: 0.9rem;
-    } */
     .edit-info  {
         color: red;
     }
@@ -141,10 +127,7 @@
         <div class="mb-5">
             <p class="title is-6" class:edit-info={isEdit}>{password}</p>            
             <p class="subtitle">PASSWORD</p>
-        </div>
-        <div class="refresh" on:click={refreshRecord(index)}>
-            <i class="fas fa-sync-alt"></i>
-        </div>        
+        </div>       
     </div>
 
 

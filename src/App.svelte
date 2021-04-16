@@ -131,12 +131,13 @@
             password: dataRecord[i].password,
             isEditClicked: dataRecord[i].isEditClicked
         }]
-        console.log(dataEditCard);
 
         dataRecord[i].owner = info;
         dataRecord[i].username = info;
         dataRecord[i].password = info;
         dataRecord[i].isEditClicked = true;
+
+        console.log(dataEditCard)
 
     }
 
@@ -144,18 +145,6 @@
 		dataRecord.splice(i, 1);
 		dataRecord = [...dataRecord];
 	}
-
-    function refreshRecord(i) {  
-        console.log(i)
-        // console.log(dataEditCard[i]);
-        
-        // console.log(dataEditCard)            
-        // if (dataRecord[i].isEditClicked) {
-        //     dataRecord[i].owner = dataEditCard[recordIndex].owner;
-        //     dataRecord[i].username = dataEditCard[recordIndex].username;
-        //     dataRecord[i].password = dataEditCard[recordIndex].password;
-        // }        
-    }
     
     function refreshpage() {
         location.reload();
@@ -176,12 +165,11 @@
 			<Record
 				index={i}
                 {editRecord}
-				{deleteRecord}                
-                {refreshRecord}
+				{deleteRecord}
 				system={record.system}
 				owner={record.owner}
 				username={record.username}
-				password={record.password}        
+				password={record.password}
                 isEdit={record.isEditClicked}
 
 			/>
